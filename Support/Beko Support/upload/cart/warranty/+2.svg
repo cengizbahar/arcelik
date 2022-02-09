@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Icon/Artı+2garanti" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Oval" fill="#222222" fill-rule="nonzero" points="9.5 12 10.5 12 10.5 15.5 14 15.5 14 16.5 10.5 16.5 10.5 20 9.5 20 9.5 16.5 6 16.5 6 15.5 9.5 15.5"></polygon>
+        <path d="M24.608,21 L24.608,18.968 L18.816,18.968 L18.816,18.776 C18.816,16.072 24.464,16.216 24.464,12.312 C24.464,10.408 23.872,8.872 20.48,8.872 C17.616,8.872 16.672,10.504 16.544,12.536 L18.768,12.744 C18.864,11.336 19.488,10.888 20.528,10.888 C21.68,10.888 22.192,11.304 22.192,12.312 C22.192,14.936 16.544,14.52 16.544,19.16 L16.544,21 L24.608,21 Z" id="2" fill="#222222" fill-rule="nonzero"></path>
+    </g>
+</svg>

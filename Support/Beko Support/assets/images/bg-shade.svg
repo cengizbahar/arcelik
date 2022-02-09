@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="960px" height="540px" viewBox="0 0 960 540" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>Rectangle + Rectangle Copy 12 + Rectangle Copy 11 + Rectangle Mask Copy 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="960" height="540"></rect>
+        <linearGradient x1="40.7435392%" y1="50%" x2="45.8857152%" y2="44.3046875%" id="linearGradient-3">
+            <stop stop-color="#EFEDEA" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#000000" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="48.2211343%" y1="56.0306887%" x2="44.1046221%" y2="49.6737358%" id="linearGradient-4">
+            <stop stop-color="#000000" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#000000" offset="100%"></stop>
+            <stop stop-color="#000000" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="38.8682655%" y1="52.9699862%" x2="50%" y2="44.5132269%" id="linearGradient-5">
+            <stop stop-color="#000000" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#000000" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Rectangle-+-Rectangle-Copy-12-+-Rectangle-Copy-11-+-Rectangle-Mask-Copy-2">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#E5E3DD" xlink:href="#path-1"></use>
+            <rect id="Rectangle" fill="url(#linearGradient-3)" mask="url(#mask-2)" transform="translate(504.814441, 291.559883) rotate(-34.000000) translate(-504.814441, -291.559883) " x="-55.1855594" y="102.559883" width="1120" height="378"></rect>
+            <rect id="Rectangle-Copy-12" fill="url(#linearGradient-4)" mask="url(#mask-2)" transform="translate(145.000000, 156.000000) rotate(-65.000000) translate(-145.000000, -156.000000) " x="-428" y="-43" width="1146" height="398"></rect>
+            <rect id="Rectangle-Copy-11" fill="url(#linearGradient-5)" mask="url(#mask-2)" transform="translate(579.000000, 430.000000) rotate(-14.000000) translate(-579.000000, -430.000000) " x="6" y="231" width="1146" height="398"></rect>
+            <rect id="Rectangle" mask="url(#mask-2)" x="0" y="0" width="960" height="540"></rect>
+        </g>
+    </g>
+</svg>
