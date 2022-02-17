@@ -1,0 +1,7 @@
+{
+    "body": {
+        "modelViewer": "https://holonext.azurewebsites.net/api/v1/scene/shared-scene/5f56198cce8ffc3328ba8a62/arcelik_demo_telve.glb",
+        "glbModel": "https://holonext.azurewebsites.net/api/v1/scene/public/file/5f56198cce8ffc3328ba8a62/arcelik_demo_telve.glb",
+        "usdzModel": "https://holonext.azurewebsites.net/api/v1/scene/public/file/5f56198cce8ffc3328ba8a62/model.usdz"
+    }
+}
