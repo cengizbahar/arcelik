@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="tr">
+<!--HEAD-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="manifest" href="manifest-min.json">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#d93131">
+  <link rel="shortcut icon" type="image/x-icon" media="all" href="assets/images/favicon.ico">
+  <!--Add to homescreen for Chrome on Android-->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Arçelik">
+  <link rel="icon" sizes="144x144" href="assets/images/mstile-144x144.png">
+  <!--Add to homescreen for Safari on iOS-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#d93131">
+  <meta name="apple-mobile-web-app-title" content="Arçelik">
+  <link rel="apple-touch-icon" sizes="144x144" href="assets/images/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/images/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.ico">
+  <title>Toggle</title>
+  <meta name="description" content="Mucize Lezzetler desc">
+
+  <!--css-->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!--serviceWorker-->
+  <script>
+    var extJSPath = 'assets/js/ext/',
+      googleMapPinPath = '/assets/images/';
+
+  </script>
+
+
+
+  <style>
+    .new-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .new-item p {
+      font-size: 15px;
+      line-height: 20px;
+      color: #000000;
+      margin: 0px;
+    }
+   .toggle input[type=checkbox] {
+      height: 0;
+      width: 0;
+      visibility: hidden;
+    }
+
+    .toggle label {
+      cursor: pointer;
+      text-indent: -9999px;
+      width: 31px;
+      height: 24px;
+      background: #989898;
+      display: block;
+      border-radius: 100px;
+      position: relative;
+    }
+
+    .toggle  label:after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border-radius: 50%;
+      transition: 0.2s;
+    }
+
+    .toggle input:checked+label {
+      background: #d93131;
+    }
+
+    .toggle input:checked+label:after {
+      left: calc(100% - 3px);
+      transform: translateX(-100%);
+    }
+
+    .toggle label:active:after {
+      width: 31px;
+    }
+  </style>
+</head>
+<!--HEAD-->
+
+<body class="holding page-ml page-mr">
+  <div id="wrapper">
+    <!--HEADER-->
+    <header id="site-header">
+      <!-- HEADER TOP-->
+      <div class="header-top se-item" data-se-anim="headerTransform">
+        <div class="container">
+          <div class="row">
+            <div class="col-9 m col-left-alt"><a class="btn-page-back" aria-label="ana sayfa" href="home.html">
+                <svg class="icon icon-arrow-l">
+                  <use xlink:href="assets/images/sprite-map.svg#arrow-l"></use>
+                </svg></a>
+              <div class="m-user">
+                <figure class="responsive"><img class="lazy m-user-img"
+                    data-srcset="upload/live_chat@1x.jpg 1x, upload/live_chat@2x.jpg 2x" alt="alt text here" /></figure>
+                <div class="m-user-name">Ezgi Mutlu Lorem İpsum San. Tic. Ltd. Şti.</div>
+              </div>
+            </div>
+            <div class="col-3 col-lg-5 col-left">
+              <button class="btn-menu js-ov-trg" data-target="#main-menu" data-bdy="menu-ready" aria-label="menu"><span
+                  class="m">
+                  <svg class="icon icon-menu">
+                    <use xlink:href="assets/images/sprite-map.svg#menu"></use>
+                  </svg></span><span class="d">Ürünler
+                  <svg class="icon icon-arrow-b-small">
+                    <use xlink:href="assets/images/sprite-map.svg#arrow-b-small"></use>
+                  </svg></span></button>
+              <div class="d"><a class="link" href="technology-list.html">Teknolojiler</a><a class="link"
+                  href="promotion-list.html">Kampanyalar</a><a class="link" href="support.html">Destek</a></div>
+              <div class="ntf-holder">
+                <button class="btn-notification js-ov-trg" data-target="#notifiers" data-bdy="ntf-ready"
+                  aria-label="bildirimler">
+                  <svg class="icon icon-notification">
+                    <use xlink:href="assets/images/sprite-map.svg#notification"></use>
+                  </svg>
+                  <div class="qty-badge" data-qty="3">3</div>
+                </button>
+                <!-- NOTIFICATIONS-->
+                <div class="js-ov-target" id="notifiers">
+                  <div class="ntf-header">
+                    <div class="ntf-title">Bildirimler</div>
+                    <button class="btn-close" aria-label="kapat">
+                      <svg class="icon icon-close">
+                        <use xlink:href="assets/images/sprite-map.svg#close"></use>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="ntf-body">
+                    <ul class="ul-clear">
+                      <li class="ntf-item ntf-type-1">
+                        <div class="ntf-img">
+                          <figure class="responsive"><img class="lazy"
+                              data-src="https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/product-images/7159020100-9103-YP/7159020100-LO1-20170315-133948.png.transform/rendition-320/image.png"
+                              alt="9103 YP" /></figure>
+                        </div>
+                        <div class="ntf-content"><b>Size özel kupon</b>
+                          <p>Size özel 1 adet kupon tanımlandı. Buzdolabı kategorisine özel 300TL indirim.</p>
+                        </div>
+                      </li>
+                      <li class="ntf-item ntf-type-2 ntf-no-img">
+                        <div class="ntf-content"><b>Size özel kupon</b>
+                          <p>Size özel 1 adet kupon tanımlandı. Buzdolabı kategorisine özel 300TL indirim.</p>
+                        </div>
+                      </li>
+                      <li class="ntf-item ntf-type-3">
+                        <div class="ntf-img">
+                          <figure class="responsive"><img class="lazy"
+                              data-src="https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/product-images/8901021600-PHILIPS-43PUS6504-62-Smart-4K-LED-TV/8901021600-LO1-20200114-073332.png.transform/rendition-320/image.png"
+                              alt="9103 YP" /></figure>
+                        </div>
+                        <div class="ntf-content"><b>Klimanızın kılavuzunu incelediniz mi?</b>
+                          <p>Klimanızın doğru kullanım ve bakımı ile ilgili bilgiye buradan ulaşabilirsiniz.</p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="ntf-footer"><a class="btn btn-outline-dark" title="Tümünü Gör" href="#"><span>Tümünü
+                        Gör</span></a>
+                  </div>
+                </div>
+                <!-- NOTIFICATIONS-->
+              </div>
+            </div>
+            <div class="col-6 col-lg-2 col-center">
+              <div class="logo"><a href="/"><img class="logo-org" src="assets/images/logo.svg" alt="Arçelik"
+                    title="Arçelik"><img class="logo-alt" src="assets/images/logo-alt.svg" alt="Arçelik"
+                    title="Arçelik"></a></div>
+            </div>
+            <div class="col-3 col-lg-5 col-right">
+              <div class="d"><a class="link live-chat-trigger" href="javascript:void(0);">Canli Destek</a><a
+                  class="link" href="support-services.html">Mağazalar ve Servisler</a><a class="link"
+                  href="login-signup.html">Uyelik</a>
+              </div>
+              <button class="btn-search js-ov-trg" data-target="#header-search" data-bdy="search-ready"
+                aria-label="arama">
+                <svg class="icon icon-search">
+                  <use xlink:href="assets/images/sprite-map.svg#search"></use>
+                </svg>
+              </button><a class="btn-cart" href="cart.html" aria-label="alisveris sepetim">
+                <svg class="icon icon-bag">
+                  <use xlink:href="assets/images/sprite-map.svg#bag"></use>
+                </svg>
+                <div class="qty-badge" data-qty="1">1</div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- MAIN MENU TEMP-->
+        <div class="js-ov-target" id="main-menu">
+          <button class="btn-close" aria-label="kapat">
+            <svg class="icon icon-close">
+              <use xlink:href="assets/images/sprite-map.svg#close"></use>
+            </svg>
+          </button>
+          <ul class="ul-clear menu-user">
+            <li><a href="#">Giriş Yap / Üye Ol</a></li>
+          </ul>
+          <ul class="ul-clear menu-search">
+            <li><a class="js-ov-trg" href="javascript:void(0);" data-target="#header-search" data-bdy="search-ready"
+                aria-label="arama">
+                <div class="f-input">
+                  <div class="icon-holder">
+                    <svg class="icon icon-search">
+                      <use xlink:href="assets/images/sprite-map.svg#search"></use>
+                    </svg>
+                  </div>
+                  <div class="placeholder">Ürün, kategori, servis, mağaza ara</div>
+                </div>
+              </a></li>
+          </ul>
+          <ul class="ul-clear menu-category">
+            <li><a href="javascript:(0);">
+                <figure class="responsive"><img class="lazy"
+                    data-srcset="upload/categories/beyaz-esya@1x.png 1x, upload/categories/beyaz-esya@2x.png 2x"
+                    alt="Beyaz Eşya" /></figure><span>Beyaz Eşya</span>
+              </a>
+              <div class="sub">
+                <div class="banner bnr-cover bnr-middle bnr-bg-1">
+                  <div class="bnr-media">
+                    <figure class="responsive"><img class="lazy"
+                        data-srcset="https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/technology/global/full-fresh-teknolojisi-FullFresh-Teknolojisi/full-fresh-teknolojisi-FullFresh-Teknolojisi-global-full-fresh-teknolojisi-27-07-2018.png.transform/rendition-503/image.png 1x, https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/technology/global/full-fresh-teknolojisi-FullFresh-Teknolojisi/full-fresh-teknolojisi-FullFresh-Teknolojisi-global-full-fresh-teknolojisi-27-07-2018.png.transform/rendition-1006/image.png 2x"
+                        alt="category banner 0" /></figure>
+                  </div>
+                  <div class="bnr-body">
+                    <div class="bnr-header">
+                      <div class="bnr-title">Beyaz Eşya<br>Urunlerinde Inanilmaz Firsatlar</div>
+                    </div>
+                  </div>
+                </div>
+                <ul class="ul-clear lv-2">
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/buzdolabi@1x.png 1x, upload/categories/buzdolabi@2x.png 2x"
+                          alt="Buzdolabı" /></figure><span>Buzdolabı</span>
+                    </a>
+                    <ul class="ul-clear lv-3">
+                      <li><a class="link" href="#">Gardırop Tipi Buzdolabı</a></li>
+                      <li><a class="link" href="#">Çift Kapılı Buzdolabı</a></li>
+                      <li><a class="link" href="#">Tezgah Altı Buzdolabı</a></li>
+                      <li><a class="link" href="#">No Frost Buzdolabı</a></li>
+                    </ul>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Derin Dondurucu" /></figure><span>Derin Dondurucu</span>
+                    </a>
+                    <ul class="ul-clear lv-3">
+                      <li><a class="link" href="#">Sandık Tipi Derin Dondurucu</a></li>
+                      <li><a class="link" href="#">Çekmeceli Derin Dondurucu</a></li>
+                    </ul>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Bulaşık Makinesi" /></figure><span>Bulaşık Makinesi</span>
+                    </a>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Çamaşır Makinesi" /></figure><span>Çamaşır Makinesi</span>
+                    </a>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Kurutma Makinesi" /></figure><span>Kurutma Makinesi</span>
+                    </a>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Kurutmalı Çamaşır Makinesi" /></figure><span>Kurutmalı Çamaşır Makinesi</span>
+                    </a>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Fırın" /></figure><span>Fırın</span>
+                    </a>
+                    <ul class="ul-clear lv-3">
+                      <li><a class="link" href="#">Ocaklı Fırın</a></li>
+                      <li><a class="link" href="#">Mini Fırın</a></li>
+                      <li><a class="link" href="#">Kuzine Fırın</a></li>
+                    </ul>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Mikrodalga Fırın" /></figure><span>Mikrodalga Fırın</span>
+                    </a>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Set Üstü Ocak" /></figure><span>Set Üstü Ocak</span>
+                    </a>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Su Arıtma Cihazı" /></figure><span>Su Arıtma Cihazı</span>
+                    </a>
+                  </li>
+                  <li class="all"><a href="#"><span>Tüm Ürünler</span></a></li>
+                </ul>
+              </div>
+            </li>
+            <li><a href="javascript:(0);">
+                <figure class="responsive"><img class="lazy"
+                    data-srcset="upload/categories/ankastre@1x.png 1x, upload/categories/ankastre@2x.png 2x"
+                    alt="Ankastre" /></figure><span>Ankastre</span>
+              </a>
+              <div class="sub">
+                <div class="banner bnr-cover bnr-middle bnr-bg-1">
+                  <div class="bnr-media">
+                    <figure class="responsive"><img class="lazy"
+                        data-srcset="https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/technology/global/A1511_48340_TA1-Mavi-Isik-Teknolojisi/A1511_48340_TA1-Mavi-Isik-Teknolojisi-global-Mavi-isik-new.png.transform/rendition-503/image.png 1x, https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/technology/global/A1511_48340_TA1-Mavi-Isik-Teknolojisi/A1511_48340_TA1-Mavi-Isik-Teknolojisi-global-Mavi-isik-new.png.transform/rendition-1006/image.png 2x"
+                        alt="category banner 1" /></figure>
+                  </div>
+                  <div class="bnr-body">
+                    <div class="bnr-header">
+                      <div class="bnr-title">Ankastre<br>Urunlerinde Inanilmaz Firsatlar</div>
+                    </div>
+                  </div>
+                </div>
+                <ul class="ul-clear lv-2">
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Ankastre Set" /></figure><span>Ankastre Set</span>
+                    </a>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Ankastre Fırın" /></figure><span>Ankastre Fırın</span>
+                    </a>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Ankastre Mikrodalga" /></figure><span>Ankastre Mikrodalga</span>
+                    </a>
+                    <ul class="ul-clear lv-3">
+                      <li><a class="link" href="#">Ankastre Mikrodalga</a></li>
+                      <li><a class="link" href="#">Ankastre Mikrodalga Çerçevesi</a></li>
+                    </ul>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Ankastre Ocak" /></figure><span>Ankastre Ocak</span>
+                    </a>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Ankastre Davlumbaz" /></figure><span>Ankastre Davlumbaz</span>
+                    </a>
+                    <ul class="ul-clear lv-3">
+                      <li><a class="link" href="#">Ankastre Ada Tipi Davlumbaz</a></li>
+                      <li><a class="link" href="#">Ankastre Duvar Tipi Davlumbaz</a></li>
+                    </ul>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Ankastre Aspiratör" /></figure><span>Ankastre Aspiratör</span>
+                    </a>
+                    <ul class="ul-clear lv-3">
+                      <li><a class="link" href="#">Ankastre Sürgülü Aspiratör</a></li>
+                      <li><a class="link" href="#">Ankastre Gömme Aspiratör</a></li>
+                    </ul>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Ankastre Bulaşık Makinesi" /></figure><span>Ankastre Bulaşık Makinesi</span>
+                    </a>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Ankastre Buzdolabı" /></figure><span>Ankastre Buzdolabı</span>
+                    </a>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Ankastre Kahve Makinesi" /></figure><span>Ankastre Kahve Makinesi</span>
+                    </a>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Ankastre Çamaşır Makinesi" /></figure><span>Ankastre Çamaşır Makinesi</span>
+                    </a>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Ankastre Kurutmalı Çamaşır Makinesi" /></figure><span>Ankastre Kurutmalı Çamaşır
+                        Makinesi</span>
+                    </a>
+                  </li>
+                  <li class="all"><a href="#"><span>Tüm Ürünler</span></a></li>
+                </ul>
+              </div>
+            </li>
+            <li><a href="javascript:(0);">
+                <figure class="responsive"><img class="lazy"
+                    data-srcset="upload/categories/elektronik@1x.png 1x, upload/categories/elektronik@2x.png 2x"
+                    alt="Elektronik" /></figure><span>Elektronik</span>
+              </a>
+              <div class="sub">
+                <div class="banner bnr-cover bnr-middle bnr-bg-1">
+                  <div class="bnr-media">
+                    <figure class="responsive"><img class="lazy"
+                        data-srcset="https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/technology/global/full-fresh-teknolojisi-FullFresh-Teknolojisi/full-fresh-teknolojisi-FullFresh-Teknolojisi-global-full-fresh-teknolojisi-27-07-2018.png.transform/rendition-503/image.png 1x, https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/technology/global/full-fresh-teknolojisi-FullFresh-Teknolojisi/full-fresh-teknolojisi-FullFresh-Teknolojisi-global-full-fresh-teknolojisi-27-07-2018.png.transform/rendition-1006/image.png 2x"
+                        alt="category banner 2" /></figure>
+                  </div>
+                  <div class="bnr-body">
+                    <div class="bnr-header">
+                      <div class="bnr-title">Elektronik<br>Urunlerinde Inanilmaz Firsatlar</div>
+                    </div>
+                  </div>
+                </div>
+                <ul class="ul-clear lv-2">
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/tv@1x.png 1x, upload/categories/tv@2x.png 2x"
+                          alt="Televizyon" /></figure><span>Televizyon</span>
+                    </a>
+                    <ul class="ul-clear lv-3">
+                      <li><a class="link" href="#">4K OLED TV</a></li>
+                      <li><a class="link" href="#">4K UHD Pro</a></li>
+                      <li><a class="link" href="#">4K UHD TV</a></li>
+                      <li><a class="link" href="#">Smart TV</a></li>
+                      <li><a class="link" href="#">FHD TV</a></li>
+                      <li><a class="link" href="#">LED TV</a></li>
+                      <li><a class="link" href="#">TV Aksesuarları</a></li>
+                    </ul>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/asistan@1x.png 1x, upload/categories/asistan@2x.png 2x"
+                          alt="Akıllı Asistan" /></figure><span>Akıllı Asistan</span>
+                    </a>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Bilgisayar" /></figure><span>Bilgisayar</span>
+                    </a>
+                    <ul class="ul-clear lv-3">
+                      <li><a class="link" href="#">Laptop</a></li>
+                      <li><a class="link" href="#">Tablet</a></li>
+                      <li><a class="link" href="#">Masaüstü Bilgisayar</a></li>
+                    </ul>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/oyun@1x.png 1x, upload/categories/oyun@2x.png 2x"
+                          alt="Hobi Oyun" /></figure><span>Hobi Oyun</span>
+                    </a>
+                    <ul class="ul-clear lv-3">
+                      <li><a class="link" href="#">Oyun Konsolu</a></li>
+                      <li><a class="link" href="#">Fotoğraf Kamera</a></li>
+                      <li><a class="link" href="#">Drone</a></li>
+                    </ul>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/telefon@1x.png 1x, upload/categories/telefon@2x.png 2x"
+                          alt="Telefon" /></figure><span>Telefon</span>
+                    </a>
+                    <ul class="ul-clear lv-3">
+                      <li><a class="link" href="#">Cep Telefonu</a></li>
+                      <li><a class="link" href="#">Cep Telefonu Aksesuar</a></li>
+                      <li><a class="link" href="#">Giyilebilir Teknoloji</a></li>
+                    </ul>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/ses-goruntu@1x.png 1x, upload/categories/ses-goruntu@2x.png 2x"
+                          alt="Ses ve Görüntü Sistemleri" /></figure><span>Ses ve Görüntü Sistemleri</span>
+                    </a>
+                    <ul class="ul-clear lv-3">
+                      <li><a class="link" href="#">Ses Sistemleri</a></li>
+                      <li><a class="link" href="#">Kulaklık</a></li>
+                      <li><a class="link" href="#">Medya Oynatıcı</a></li>
+                    </ul>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/kasa@1x.png 1x, upload/categories/kasa@2x.png 2x"
+                          alt="Yazar Kasa" /></figure><span>Yazar Kasa</span>
+                    </a>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="3D Yazıcı" /></figure><span>3D Yazıcı</span>
+                    </a>
+                    <ul class="ul-clear lv-3">
+                      <li><a class="link" href="#">3D Yazıcı</a></li>
+                      <li><a class="link" href="#">Filament</a></li>
+                    </ul>
+                  </li>
+                  <li class="all"><a href="#"><span>Tüm Ürünler</span></a></li>
+                </ul>
+              </div>
+            </li>
+            <li><a href="javascript:(0);">
+                <figure class="responsive"><img class="lazy"
+                    data-srcset="upload/categories/klima@1x.png 1x, upload/categories/klima@2x.png 2x"
+                    alt="Isıtma-Soğutma" /></figure><span>Isıtma-Soğutma</span>
+              </a>
+              <div class="sub">
+                <div class="banner bnr-cover bnr-middle bnr-bg-1">
+                  <div class="bnr-media">
+                    <figure class="responsive"><img class="lazy"
+                        data-srcset="https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/technology/global/A1511_48340_TA1-Mavi-Isik-Teknolojisi/A1511_48340_TA1-Mavi-Isik-Teknolojisi-global-Mavi-isik-new.png.transform/rendition-503/image.png 1x, https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/technology/global/A1511_48340_TA1-Mavi-Isik-Teknolojisi/A1511_48340_TA1-Mavi-Isik-Teknolojisi-global-Mavi-isik-new.png.transform/rendition-1006/image.png 2x"
+                        alt="category banner 3" /></figure>
+                  </div>
+                  <div class="bnr-body">
+                    <div class="bnr-header">
+                      <div class="bnr-title">Isıtma-Soğutma<br>Urunlerinde Inanilmaz Firsatlar</div>
+                    </div>
+                  </div>
+                </div>
+                <ul class="ul-clear lv-2">
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Klima" /></figure><span>Klima</span>
+                    </a>
+                    <ul class="ul-clear lv-3">
+                      <li><a class="link" href="#">Mobil Portatif Klima</a></li>
+                      <li><a class="link" href="#">Salon Tipi Klima</a></li>
+                      <li><a class="link" href="#">Ev Tipi Klima</a></li>
+                    </ul>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Hava Serinletici" /></figure><span>Hava Serinletici</span>
+                    </a>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Hava Temizleme" /></figure><span>Hava Temizleme</span>
+                    </a>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Kombi" /></figure><span>Kombi</span>
+                    </a>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Termosifon" /></figure><span>Termosifon</span>
+                    </a>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Vantilatör" /></figure><span>Vantilatör</span>
+                    </a>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Oda Termostatları" /></figure><span>Oda Termostatları</span>
+                    </a>
+                    <ul class="ul-clear lv-3">
+                      <li><a class="link" href="#">Akıllı Oda Termostatı</a></li>
+                      <li><a class="link" href="#">Oda Termostatı</a></li>
+                    </ul>
+                  </li>
+                  <li class="all"><a href="#"><span>Tüm Ürünler</span></a></li>
+                </ul>
+              </div>
+            </li>
+            <li><a href="javascript:(0);">
+                <figure class="responsive"><img class="lazy"
+                    data-srcset="upload/categories/kea@1x.png 1x, upload/categories/kea@2x.png 2x"
+                    alt="Küçük Ev Aletleri" /></figure><span>Küçük Ev Aletleri</span>
+              </a>
+              <div class="sub">
+                <div class="banner bnr-cover bnr-middle bnr-bg-1">
+                  <div class="bnr-media">
+                    <figure class="responsive"><img class="lazy"
+                        data-srcset="https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/technology/global/full-fresh-teknolojisi-FullFresh-Teknolojisi/full-fresh-teknolojisi-FullFresh-Teknolojisi-global-full-fresh-teknolojisi-27-07-2018.png.transform/rendition-503/image.png 1x, https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/technology/global/full-fresh-teknolojisi-FullFresh-Teknolojisi/full-fresh-teknolojisi-FullFresh-Teknolojisi-global-full-fresh-teknolojisi-27-07-2018.png.transform/rendition-1006/image.png 2x"
+                        alt="category banner 4" /></figure>
+                  </div>
+                  <div class="bnr-body">
+                    <div class="bnr-header">
+                      <div class="bnr-title">Küçük Ev Aletleri<br>Urunlerinde Inanilmaz Firsatlar</div>
+                    </div>
+                  </div>
+                </div>
+                <ul class="ul-clear lv-2">
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Süpürge" /></figure><span>Süpürge</span>
+                    </a>
+                    <ul class="ul-clear lv-3">
+                      <li><a class="link" href="#">Şarjlı Süpürge</a></li>
+                      <li><a class="link" href="#">Toz Torbasız Süpürge</a></li>
+                      <li><a class="link" href="#">Toz Torbalı Süpürge</a></li>
+                      <li><a class="link" href="#">Elektrikli Süpürge</a></li>
+                      <li><a class="link" href="#">Dikey Süpürge</a></li>
+                      <li><a class="link" href="#">Islak Kuru</a></li>
+                      <li><a class="link" href="#">Toz Torbası</a></li>
+                    </ul>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Ütü" /></figure><span>Ütü</span>
+                    </a>
+                    <ul class="ul-clear lv-3">
+                      <li><a class="link" href="#">Buharlı Ütü</a></li>
+                      <li><a class="link" href="#">Buhar Kazanlı Ütü</a></li>
+                      <li><a class="link" href="#">Ütü Masası</a></li>
+                    </ul>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="İçecek Hazırlama" /></figure><span>İçecek Hazırlama</span>
+                    </a>
+                    <ul class="ul-clear lv-3">
+                      <li><a class="link" href="#">Türk Kahve Makinesi</a></li>
+                      <li><a class="link" href="#">Kahve Makinesi</a></li>
+                      <li><a class="link" href="#">Çay Makinesi</a></li>
+                      <li><a class="link" href="#">Kettle</a></li>
+                      <li><a class="link" href="#">Katı Meyve Sıkacağı</a></li>
+                      <li><a class="link" href="#">Kahve Öğütücü</a></li>
+                      <li><a class="link" href="#">Kahve Kapsülü</a></li>
+                    </ul>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Karıştırıcı &amp; Doğrayıcı" /></figure><span>Karıştırıcı &amp; Doğrayıcı</span>
+                    </a>
+                    <ul class="ul-clear lv-3">
+                      <li><a class="link" href="#">El Blender</a></li>
+                      <li><a class="link" href="#">Blender</a></li>
+                      <li><a class="link" href="#">Mikser</a></li>
+                      <li><a class="link" href="#">Doğrayıcı</a></li>
+                      <li><a class="link" href="#">Mutfak Robotu</a></li>
+                      <li><a class="link" href="#">Mutfak Makinesi</a></li>
+                      <li><a class="link" href="#">Yoğurt Makinesi</a></li>
+                    </ul>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Pişirici" /></figure><span>Pişirici</span>
+                    </a>
+                    <ul class="ul-clear lv-3">
+                      <li><a class="link" href="#">Tost Makinesi</a></li>
+                      <li><a class="link" href="#">Ekmek Kızartma Makinesi</a></li>
+                      <li><a class="link" href="#">Çok Amaçlı Pişirici</a></li>
+                      <li><a class="link" href="#">Slow Cooker</a></li>
+                      <li><a class="link" href="#">Fritöz</a></li>
+                      <li><a class="link" href="#">Yumurta Pişirme Makinesi</a></li>
+                    </ul>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Kişisel Bakım" /></figure><span>Kişisel Bakım</span>
+                    </a>
+                    <ul class="ul-clear lv-3">
+                      <li><a class="link" href="#">Saç Kurutma Makinesi</a></li>
+                      <li><a class="link" href="#">Saç Düzleştirici</a></li>
+                      <li><a class="link" href="#">Saç Maşası</a></li>
+                      <li><a class="link" href="#">Baskül</a></li>
+                      <li><a class="link" href="#">Tıraş Makinesi</a></li>
+                    </ul>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Su Sebili" /></figure><span>Su Sebili</span>
+                    </a>
+                  </li>
+                  <li class="all"><a href="#"><span>Tüm Ürünler</span></a></li>
+                </ul>
+              </div>
+            </li>
+            <li><a href="javascript:(0);">
+                <figure class="responsive"><img class="lazy"
+                    data-srcset="upload/categories/aksesuar@1x.png 1x, upload/categories/aksesuar@2x.png 2x"
+                    alt="Tamamlayıcı Ürünler" /></figure><span>Tamamlayıcı Ürünler</span>
+              </a>
+              <div class="sub">
+                <div class="banner bnr-cover bnr-middle bnr-bg-1">
+                  <div class="bnr-media">
+                    <figure class="responsive"><img class="lazy"
+                        data-srcset="https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/technology/global/A1511_48340_TA1-Mavi-Isik-Teknolojisi/A1511_48340_TA1-Mavi-Isik-Teknolojisi-global-Mavi-isik-new.png.transform/rendition-503/image.png 1x, https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/technology/global/A1511_48340_TA1-Mavi-Isik-Teknolojisi/A1511_48340_TA1-Mavi-Isik-Teknolojisi-global-Mavi-isik-new.png.transform/rendition-1006/image.png 2x"
+                        alt="category banner 5" /></figure>
+                  </div>
+                  <div class="bnr-body">
+                    <div class="bnr-header">
+                      <div class="bnr-title">Tamamlayıcı Ürünler<br>Urunlerinde Inanilmaz Firsatlar</div>
+                    </div>
+                  </div>
+                </div>
+                <ul class="ul-clear lv-2">
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Temizlik Ve Bakım Ürünleri" /></figure><span>Temizlik Ve Bakım Ürünleri</span>
+                    </a>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Aksesuarlar" /></figure><span>Aksesuarlar</span>
+                    </a>
+                  </li>
+                  <li class="all"><a href="#"><span>Tüm Ürünler</span></a></li>
+                </ul>
+              </div>
+            </li>
+            <li><a href="javascript:(0);">
+                <figure class="responsive"><img class="lazy"
+                    data-srcset="upload/categories/su-aritma@1x.png 1x, upload/categories/su-aritma@2x.png 2x"
+                    alt="Su Arıtma" /></figure><span>Su Arıtma</span>
+              </a>
+              <div class="sub">
+                <div class="banner bnr-cover bnr-middle bnr-bg-1">
+                  <div class="bnr-media">
+                    <figure class="responsive"><img class="lazy"
+                        data-srcset="https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/technology/global/full-fresh-teknolojisi-FullFresh-Teknolojisi/full-fresh-teknolojisi-FullFresh-Teknolojisi-global-full-fresh-teknolojisi-27-07-2018.png.transform/rendition-503/image.png 1x, https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/technology/global/full-fresh-teknolojisi-FullFresh-Teknolojisi/full-fresh-teknolojisi-FullFresh-Teknolojisi-global-full-fresh-teknolojisi-27-07-2018.png.transform/rendition-1006/image.png 2x"
+                        alt="category banner 6" /></figure>
+                  </div>
+                  <div class="bnr-body">
+                    <div class="bnr-header">
+                      <div class="bnr-title">Su Arıtma<br>Urunlerinde Inanilmaz Firsatlar</div>
+                    </div>
+                  </div>
+                </div>
+                <ul class="ul-clear lv-2">
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Su Arıtma Cihazı" /></figure><span>Su Arıtma Cihazı</span>
+                    </a>
+                  </li>
+                  <li><a class="link" href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/categories/bilgisayar@1x.png 1x, upload/categories/bilgisayar@2x.png 2x"
+                          alt="Su Arıtma Blog" /></figure><span>Su Arıtma Blog</span>
+                    </a>
+                  </li>
+                  <li class="all"><a href="#"><span>Tüm Ürünler</span></a></li>
+                </ul>
+              </div>
+            </li>
+            <li><a href="#link">
+                <figure class="responsive"><img class="lazy"
+                    data-srcset="upload/brands@1x.png 1x, upload/brands@2x.png 2x" alt="markalar" /></figure>
+                <span>Markalar</span>
+              </a>
+              <div class="sub">
+                <ul class="ul-clear menu-brands">
+                  <li><a href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/brands/asus@1x.png 1x, upload/brands/asus@2x.png 2x" alt="Asus"
+                          title="Asus" /></figure>
+                    </a></li>
+                  <li><a href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/brands/apple@1x.png 1x, upload/brands/apple@2x.png 2x" alt="Apple"
+                          title="Apple" /></figure>
+                    </a></li>
+                  <li><a href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/brands/samsung@1x.png 1x, upload/brands/samsung@2x.png 2x" alt="Samsung"
+                          title="Samsung" /></figure>
+                    </a></li>
+                  <li><a href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/brands/grundig@1x.png 1x, upload/brands/grundig@2x.png 2x" alt="Grundig"
+                          title="Grundig" /></figure>
+                    </a></li>
+                  <li><a href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/brands/lenovo@1x.png 1x, upload/brands/lenovo@2x.png 2x" alt="Lenovo"
+                          title="Lenovo" /></figure>
+                    </a></li>
+                  <li><a href="#">
+                      <figure class="responsive"><img class="lazy"
+                          data-srcset="upload/brands/hp@1x.png 1x, upload/brands/hp@2x.png 2x" alt="HP" title="HP" />
+                      </figure>
+                    </a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="no-sub m"><a href="#link"><span>Kampanyalar</span>
+                <div class="qty-badge">14</div>
+              </a></li>
+            <li class="no-sub"><a href="#link">
+                <figure class="responsive"><img class="lazy"
+                    data-srcset="upload/guide@1x.png 1x, upload/guide@2x.png 2x" alt="Satin alma rehberleri" /></figure>
+                <span>Satın Alma Rehberleri</span>
+              </a></li>
+          </ul>
+          <ul class="ul-clear menu-links">
+            <li><a href="#link"><span>Destek</span></a></li>
+            <li><a href="#link"><span>Kurumsal</span></a></li>
+            <li><a href="#link"><span>Arçelik Mağazaları</span></a></li>
+            <li><a href="#link"><span>Yetkili Servisler</span></a></li>
+            <li><a href="#link"><span>Çağrı Merkezi</span></a></li>
+          </ul>
+          <ul class="ul-clear menu-social-links">
+            <li><a href="https://twitter.com/arcelik" target="_blank" title="Twitter" aria-label="Twitter">
+                <svg class="icon icon-twitter">
+                  <use xlink:href="assets/images/sprite-map.svg#twitter"></use>
+                </svg></a></li>
+            <li><a href="https://www.instagram.com/arcelik" target="_blank" title="Instagram" aria-label="Instagram">
+                <svg class="icon icon-instagram">
+                  <use xlink:href="assets/images/sprite-map.svg#instagram"></use>
+                </svg></a></li>
+            <li><a href="https://facebook.com/arcelik" target="_blank" title="Facebook" aria-label="Facebook">
+                <svg class="icon icon-facebook">
+                  <use xlink:href="assets/images/sprite-map.svg#facebook"></use>
+                </svg></a></li>
+            <li><a href="https://youtube.com/arcelik" target="_blank" title="Youtube" aria-label="Youtube">
+                <svg class="icon icon-youtube">
+                  <use xlink:href="assets/images/sprite-map.svg#youtube"></use>
+                </svg></a></li>
+          </ul>
+        </div>
+        <!-- MAIN MENU-->
+        <!-- HEADER SEARCH-->
+        <div class="js-ov-target" id="header-search">
+          <div class="search-input">
+            <div class="f-input">
+              <button class="icon-holder btn-back" aria-label="geri"><span class="m">
+                  <svg class="icon icon-arrow-l">
+                    <use xlink:href="assets/images/sprite-map.svg#arrow-l"></use>
+                  </svg></span><span class="d">
+                  <svg class="icon icon-close">
+                    <use xlink:href="assets/images/sprite-map.svg#close"></use>
+                  </svg></span></button>
+              <form action="search-result.html" method="get">
+                <input id="searchText" type="text" autocomplete="off" name="searchText"
+                  placeholder="Ürün, kategori, servis, mağaza ara">
+                <button class="icon-holder btn-clear" aria-label="kapat" type="button">
+                  <svg class="icon icon-close">
+                    <use xlink:href="assets/images/sprite-map.svg#close"></use>
+                  </svg>
+                </button>
+                <button class="icon-holder btn-mic" aria-label="sesle arama" type="button">
+                  <svg class="icon icon-mic">
+                    <use xlink:href="assets/images/sprite-map.svg#mic"></use>
+                  </svg>
+                </button>
+                <button class="icon-holder btn-search-post d" type="submit" aria-label="ara">
+                  <svg class="icon icon-search">
+                    <use xlink:href="assets/images/sprite-map.svg#search"></use>
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="suggested-searches">
+            <div class="area-title">Önerilen Aramalar</div>
+            <ul class="ul-clear">
+              <li><a class="link" href="#link">No Frost Buzdolabı</a></li>
+              <li><a class="link" href="#link">Çamaşır Makinası</a></li>
+              <li><a class="link" href="#link">Iphone 11 Pro</a></li>
+              <li><a class="link" href="#link">Oled TV</a></li>
+              <li><a class="link" href="#link">Notebook</a></li>
+            </ul>
+          </div>
+          <div class="suggested-results">
+            <ul class="ul-clear">
+              <li>
+                <div class="prd-row">
+                  <div class="prd-row-inner">
+                    <div class="prd-row-media">
+                      <figure class="responsive"><img class="lazy"
+                          data-src="https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/product-images/7159020100-9103-YP/7159020100-LO1-20170315-133948.png.transform/rendition-320/image.png"
+                          alt="9103 YP" /></figure>
+                    </div>
+                    <div class="prd-row-block1">
+                      <div class="prd-row-name">9103 YP 1</div>
+                      <div class="prd-row-category m">Gardırop tipi buzdolabı</div>
+                      <div class="prd-row-price d"><span class="prc prc-first">3.426 TL</span><span
+                          class="prc prc-last">3.126 TL</span>
+                        <div class="prd-row-price-third"><span class="prc prc-third">2.999 TL</span><span
+                            class="prc-third-info">Sepetteki Fiyat</span></div>
+                      </div>
+                    </div>
+                    <div class="prd-row-block2 d">
+                      <div class="prd-row-detail"><a class="btn btn-outline-dark btn-small" title="İncele"
+                          href="product-detail-1.html"><span>İncele</span></a>
+                      </div>
+                    </div><a class="prd-full-link m" href="product-detail-1.html" aria-label="urun detay"></a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="prd-row">
+                  <div class="prd-row-inner">
+                    <div class="prd-row-media">
+                      <figure class="responsive"><img class="lazy"
+                          data-src="https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/product-images/7159020100-9103-YP/7159020100-LO1-20170315-133948.png.transform/rendition-320/image.png"
+                          alt="9103 YP" /></figure>
+                    </div>
+                    <div class="prd-row-block1">
+                      <div class="prd-row-name">9103 YP 2</div>
+                      <div class="prd-row-category m">Gardırop tipi buzdolabı</div>
+                      <div class="prd-row-price d"><span class="prc prc-first">3.426 TL</span><span
+                          class="prc prc-last">3.126 TL</span>
+                        <div class="prd-row-price-third"><span class="prc prc-third">2.999 TL</span><span
+                            class="prc-third-info">Sepetteki Fiyat</span></div>
+                      </div>
+                    </div>
+                    <div class="prd-row-block2 d">
+                      <div class="prd-row-detail"><a class="btn btn-outline-dark btn-small" title="İncele"
+                          href="product-detail-1.html"><span>İncele</span></a>
+                      </div>
+                    </div><a class="prd-full-link m" href="product-detail-1.html" aria-label="urun detay"></a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="prd-row">
+                  <div class="prd-row-inner">
+                    <div class="prd-row-media">
+                      <figure class="responsive"><img class="lazy"
+                          data-src="https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/product-images/7159020100-9103-YP/7159020100-LO1-20170315-133948.png.transform/rendition-320/image.png"
+                          alt="9103 YP" /></figure>
+                    </div>
+                    <div class="prd-row-block1">
+                      <div class="prd-row-name">9103 YP 3</div>
+                      <div class="prd-row-category m">Gardırop tipi buzdolabı</div>
+                      <div class="prd-row-price d"><span class="prc prc-first">3.426 TL</span><span
+                          class="prc prc-last">3.126 TL</span>
+                        <div class="prd-row-price-third"><span class="prc prc-third">2.999 TL</span><span
+                            class="prc-third-info">Sepetteki Fiyat</span></div>
+                      </div>
+                    </div>
+                    <div class="prd-row-block2 d">
+                      <div class="prd-row-detail"><a class="btn btn-outline-dark btn-small" title="İncele"
+                          href="product-detail-1.html"><span>İncele</span></a>
+                      </div>
+                    </div><a class="prd-full-link m" href="product-detail-1.html" aria-label="urun detay"></a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="prd-row">
+                  <div class="prd-row-inner">
+                    <div class="prd-row-media">
+                      <figure class="responsive"><img class="lazy"
+                          data-src="https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/product-images/7159020100-9103-YP/7159020100-LO1-20170315-133948.png.transform/rendition-320/image.png"
+                          alt="9103 YP" /></figure>
+                    </div>
+                    <div class="prd-row-block1">
+                      <div class="prd-row-name">9103 YP 4</div>
+                      <div class="prd-row-category m">Gardırop tipi buzdolabı</div>
+                      <div class="prd-row-price d"><span class="prc prc-first">3.426 TL</span><span
+                          class="prc prc-last">3.126 TL</span>
+                        <div class="prd-row-price-third"><span class="prc prc-third">2.999 TL</span><span
+                            class="prc-third-info">Sepetteki Fiyat</span></div>
+                      </div>
+                    </div>
+                    <div class="prd-row-block2 d">
+                      <div class="prd-row-detail"><a class="btn btn-outline-dark btn-small" title="İncele"
+                          href="product-detail-1.html"><span>İncele</span></a>
+                      </div>
+                    </div><a class="prd-full-link m" href="product-detail-1.html" aria-label="urun detay"></a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="prd-row">
+                  <div class="prd-row-inner">
+                    <div class="prd-row-media">
+                      <figure class="responsive"><img class="lazy"
+                          data-src="https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/product-images/7159020100-9103-YP/7159020100-LO1-20170315-133948.png.transform/rendition-320/image.png"
+                          alt="9103 YP" /></figure>
+                    </div>
+                    <div class="prd-row-block1">
+                      <div class="prd-row-name">9103 YP 5</div>
+                      <div class="prd-row-category m">Gardırop tipi buzdolabı</div>
+                      <div class="prd-row-price d"><span class="prc prc-first">3.426 TL</span><span
+                          class="prc prc-last">3.126 TL</span>
+                        <div class="prd-row-price-third"><span class="prc prc-third">2.999 TL</span><span
+                            class="prc-third-info">Sepetteki Fiyat</span></div>
+                      </div>
+                    </div>
+                    <div class="prd-row-block2 d">
+                      <div class="prd-row-detail"><a class="btn btn-outline-dark btn-small" title="İncele"
+                          href="product-detail-1.html"><span>İncele</span></a>
+                      </div>
+                    </div><a class="prd-full-link m" href="product-detail-1.html" aria-label="urun detay"></a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="prd-row">
+                  <div class="prd-row-inner">
+                    <div class="prd-row-media">
+                      <figure class="responsive"><img class="lazy"
+                          data-src="https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/product-images/7159020100-9103-YP/7159020100-LO1-20170315-133948.png.transform/rendition-320/image.png"
+                          alt="9103 YP" /></figure>
+                    </div>
+                    <div class="prd-row-block1">
+                      <div class="prd-row-name">9103 YP 6</div>
+                      <div class="prd-row-category m">Gardırop tipi buzdolabı</div>
+                      <div class="prd-row-price d"><span class="prc prc-first">3.426 TL</span><span
+                          class="prc prc-last">3.126 TL</span>
+                        <div class="prd-row-price-third"><span class="prc prc-third">2.999 TL</span><span
+                            class="prc-third-info">Sepetteki Fiyat</span></div>
+                      </div>
+                    </div>
+                    <div class="prd-row-block2 d">
+                      <div class="prd-row-detail"><a class="btn btn-outline-dark btn-small" title="İncele"
+                          href="product-detail-1.html"><span>İncele</span></a>
+                      </div>
+                    </div><a class="prd-full-link m" href="product-detail-1.html" aria-label="urun detay"></a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="prd-row">
+                  <div class="prd-row-inner">
+                    <div class="prd-row-media">
+                      <figure class="responsive"><img class="lazy"
+                          data-src="https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/product-images/7159020100-9103-YP/7159020100-LO1-20170315-133948.png.transform/rendition-320/image.png"
+                          alt="9103 YP" /></figure>
+                    </div>
+                    <div class="prd-row-block1">
+                      <div class="prd-row-name">9103 YP 7</div>
+                      <div class="prd-row-category m">Gardırop tipi buzdolabı</div>
+                      <div class="prd-row-price d"><span class="prc prc-first">3.426 TL</span><span
+                          class="prc prc-last">3.126 TL</span>
+                        <div class="prd-row-price-third"><span class="prc prc-third">2.999 TL</span><span
+                            class="prc-third-info">Sepetteki Fiyat</span></div>
+                      </div>
+                    </div>
+                    <div class="prd-row-block2 d">
+                      <div class="prd-row-detail"><a class="btn btn-outline-dark btn-small" title="İncele"
+                          href="product-detail-1.html"><span>İncele</span></a>
+                      </div>
+                    </div><a class="prd-full-link m" href="product-detail-1.html" aria-label="urun detay"></a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="prd-row">
+                  <div class="prd-row-inner">
+                    <div class="prd-row-media">
+                      <figure class="responsive"><img class="lazy"
+                          data-src="https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/product-images/7159020100-9103-YP/7159020100-LO1-20170315-133948.png.transform/rendition-320/image.png"
+                          alt="9103 YP" /></figure>
+                    </div>
+                    <div class="prd-row-block1">
+                      <div class="prd-row-name">9103 YP 8</div>
+                      <div class="prd-row-category m">Gardırop tipi buzdolabı</div>
+                      <div class="prd-row-price d"><span class="prc prc-first">3.426 TL</span><span
+                          class="prc prc-last">3.126 TL</span>
+                        <div class="prd-row-price-third"><span class="prc prc-third">2.999 TL</span><span
+                            class="prc-third-info">Sepetteki Fiyat</span></div>
+                      </div>
+                    </div>
+                    <div class="prd-row-block2 d">
+                      <div class="prd-row-detail"><a class="btn btn-outline-dark btn-small" title="İncele"
+                          href="product-detail-1.html"><span>İncele</span></a>
+                      </div>
+                    </div><a class="prd-full-link m" href="product-detail-1.html" aria-label="urun detay"></a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="prd-row">
+                  <div class="prd-row-inner">
+                    <div class="prd-row-media">
+                      <figure class="responsive"><img class="lazy"
+                          data-src="https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/product-images/7159020100-9103-YP/7159020100-LO1-20170315-133948.png.transform/rendition-320/image.png"
+                          alt="9103 YP" /></figure>
+                    </div>
+                    <div class="prd-row-block1">
+                      <div class="prd-row-name">9103 YP 9</div>
+                      <div class="prd-row-category m">Gardırop tipi buzdolabı</div>
+                      <div class="prd-row-price d"><span class="prc prc-first">3.426 TL</span><span
+                          class="prc prc-last">3.126 TL</span>
+                        <div class="prd-row-price-third"><span class="prc prc-third">2.999 TL</span><span
+                            class="prc-third-info">Sepetteki Fiyat</span></div>
+                      </div>
+                    </div>
+                    <div class="prd-row-block2 d">
+                      <div class="prd-row-detail"><a class="btn btn-outline-dark btn-small" title="İncele"
+                          href="product-detail-1.html"><span>İncele</span></a>
+                      </div>
+                    </div><a class="prd-full-link m" href="product-detail-1.html" aria-label="urun detay"></a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="prd-row">
+                  <div class="prd-row-inner">
+                    <div class="prd-row-media">
+                      <figure class="responsive"><img class="lazy"
+                          data-src="https://www.arcelik.com.tr/content/dam/arcelik-tr/arcelikTurkeyProductCatalog/product-images/7159020100-9103-YP/7159020100-LO1-20170315-133948.png.transform/rendition-320/image.png"
+                          alt="9103 YP" /></figure>
+                    </div>
+                    <div class="prd-row-block1">
+                      <div class="prd-row-name">9103 YP 10</div>
+                      <div class="prd-row-category m">Gardırop tipi buzdolabı</div>
+                      <div class="prd-row-price d"><span class="prc prc-first">3.426 TL</span><span
+                          class="prc prc-last">3.126 TL</span>
+                        <div class="prd-row-price-third"><span class="prc prc-third">2.999 TL</span><span
+                            class="prc-third-info">Sepetteki Fiyat</span></div>
+                      </div>
+                    </div>
+                    <div class="prd-row-block2 d">
+                      <div class="prd-row-detail"><a class="btn btn-outline-dark btn-small" title="İncele"
+                          href="product-detail-1.html"><span>İncele</span></a>
+                      </div>
+                    </div><a class="prd-full-link m" href="product-detail-1.html" aria-label="urun detay"></a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- HEADER SEARCH-->
+      </div>
+      <!-- HEADER TOP-->
+    </header>
+    <!--HEADER-->
+    <!--PAGE CONTENT-->
+    <main id="site-main">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <ol class="ul-clear breadcrumb brd-type-cover">
+              <li><a class="link" href="#"><span>Anasayfa</span> </a>
+              </li>
+              <li><a class="link" href="#"><span>Mucize Lezzetler</span></a>
+              </li>
+              <li><a class="link" href="#"><span>Mutfak İpuçları</span></a>
+              </li>
+            </ol>
+         
+
+            <!-- TOP PANEL-->
+            <div class="top-panel container-max-1200">
+
+
+              <div class="pnl-right">
+                <button class="btn-filter" data-toggle="modal" data-target="#modal-filters">
+                  <span>
+                    Filtrele (1)</span>
+                  <svg class="icon icon-filter">
+                    <use xlink:href="/_ui/shared/images/sprite-map.svg#filter"></use>
+                  </svg>
+                </button>
+              </div>
+
+      
+
+            </div>
+
+         
+
+          </div>
+        </div>
+ 
+        <!-- Ne pişirsem-->
+        <div class="modal fade" id="what-cook" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <div class="modal-header-right"><a class="close-modal" data-dismiss="modal" aria-label="Close"
+                    href="javascript:void(0);">
+                    <svg class="icon icon-close">
+                      <use xlink:href="assets/images/sprite-map.svg#close"></use>
+                    </svg></a>
+                </div>
+              </div>
+              <div class="modal-body">
+                <div id="filters-rcp">
+                  <ul class="accordion" data-type="free">
+                    <li class="filter-group fg-type-options active">
+                      <div class="acc-item">
+                        <h1 class="modal-h1">Ne Pişirsem?
+                        </h1>
+                      </div>
+                      <div class="acc-body">
+                        <p class="modal-text">
+                          Ne pişireceğine karar veremediyseniz,
+                          evinizdeki malzemelerinizi seçin ve evinizdeki malzemelere göre en lezzetli tarifleri
+                          önerelim.
+                        </p>
+
+                        <button class="btn btn-light btn-small" type="button" title=" Başla"><span> Başla</span>
+                        </button>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <figure> <img src="images/firin.png" alt="cilek"></figure>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Gurme-->
+        <div class="modal fade" id="real-gurme" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <div class="modal-header-right"><a class="close-modal" data-dismiss="modal" aria-label="Close"
+                    href="javascript:void(0);">
+                    <svg class="icon icon-close">
+                      <use xlink:href="assets/images/sprite-map.svg#close"></use>
+                    </svg></a>
+                </div>
+              </div>
+              <div class="modal-body">
+                <div id="filters-rcp">
+                  <ul class="accordion" data-type="free">
+                    <li class="filter-group fg-type-options active">
+                      <div class="acc-item">
+                        <h1 class="modal-h1">Gerçek Bir <br>
+                          Tatlı Gurmesi Misin?</h1>
+                      </div>
+                      <div class="acc-body">
+                        <p class="modal-text">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim feugiat
+                          sollicitudin. In gravida elementum sollicitudin.
+
+
+                        </p>
+                        <p class="modal-text">
+                          Sed urna nulla, iaculis non velit vel, aliquet ornare lacus. Nunc lobortis dignissim suscipit.
+                        </p>
+                        <button class="btn btn-light btn-small" type="button" title="Teste Başla"><span>Teste
+                            Başla</span>
+                        </button>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <figure> <img src="images/bigcilek.png" alt="cilek"></figure>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Filters-->
+        <div class="modal fade show" id="modal-filters" tabindex="-1" role="dialog" aria-modal="true">
+          <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Filtrele</h5>
+                <div class="modal-header-right">
+                  <a class="close-modal" data-dismiss="modal" aria-label="Close" href="javascript:void(0);">
+                    <svg class="icon icon-close">
+                      <use xlink:href="/_ui/shared/images/sprite-map.svg#close"></use>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="modal-body">
+                <div id="filters-evt">
+                  <ul class="accordion" data-type="free">
+                    <li class="filter-group fg-type-options active">
+                      <div class="acc-item new-item">
+                        <p>Yalnızca Kampanyalı Ürünler</p>
+                        <div class="toggle">
+                          <input type="checkbox" id="switch" />
+                          <label for="switch">Toggle</label>
+                        </div>
+
+                      </div>
+
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div class="mf-left"><span id="article-length">11</span> sonuç bulundu</div>
+                <div class="mf-right">
+                  <button class="btn btn-outline-primary js-events" data-filter-type="recipe"
+                    data-list-url="/mucize-lezzetler/recipes" data-url="/mucize-lezzetler/recipes/search/recipeType/"
+                    type="button" title="Uygula">
+                    <span>Uygula</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+    <!--PAGE CONTENT-->
+    <!--FOOTER-->
+    <footer id="site-footer">
+      <button class="btn-page-top" aria-label="yukari git">
+        <svg class="icon icon-arrow-b">
+          <use xlink:href="assets/images/sprite-map.svg#arrow-b"></use>
+        </svg>
+      </button>
+      <!-- FOOTER TOP-->
+      <div class="footer-top">
+        <div class="container container-max-1200">
+          <div class="row">
+            <div class="col-12 col-lg-9 d col-left">
+              <!-- FOOTER MENU DESKTOP-->
+              <div class="footer-menu-d">
+                <ul class="ul-clear">
+                  <li class="title">Ürünler</li>
+                  <li><a class="link" href="#">Beyaz Eşya</a></li>
+                  <li><a class="link" href="#">Ankastre</a></li>
+                  <li><a class="link" href="#">Elektronik</a></li>
+                  <li><a class="link" href="#">Isıtma-Soğutma</a></li>
+                  <li><a class="link" href="#">Küçük Ev Aletleri</a></li>
+                  <li><a class="link" href="#">Su Arıtma</a></li>
+                  <li><a class="link" href="#">Tamamlayıcı Ürünler</a></li>
+                  <li><a class="link" href="#">Kampanyalar</a></li>
+                </ul>
+                <ul class="ul-clear">
+                  <li class="title">Kurumsal</li>
+                  <li><a class="link" href="#">Arçelik A.Ş.</a></li>
+                  <li><a class="link" href="#">Yatırımcı İlişkileri</a></li>
+                  <li><a class="link" href="#">Medya İlişkileri</a></li>
+                  <li><a class="link" href="#">İnsan Kaynakları</a></li>
+                  <li><a class="link" href="#">Toplumsal Sorumluluk</a></li>
+                  <li><a class="link" href="#">Müşteri Memnuniyeti</a></li>
+                  <li><a class="link" href="#">Kişisel Verilerin Korunması</a></li>
+                  <li><a class="link" href="#">Kurumsal Çözümler</a></li>
+                </ul>
+                <ul class="ul-clear">
+                  <li class="title">Destek</li>
+                  <li><a class="link" href="#">Destek ve Bilgi Merkezi</a></li>
+                  <li><a class="link" href="#">Yazılım ve Kılavuz Arama</a></li>
+                  <li><a class="link" href="#">Katalog ve Broşür</a></li>
+                  <li><a class="link" href="#">Garanti Uygulamaları</a></li>
+                  <li><a class="link" href="#">Satın Alma Rehberi</a></li>
+                  <li><a class="link" href="#">Kullanım Rehberi</a></li>
+                  <li><a class="link" href="#">Bakım Rehberi</a></li>
+                  <li><a class="link" href="#">Sıkça Sorulan Sorular</a></li>
+                  <li><a class="link" href="#">E-Ticaret Destek</a></li>
+                  <li><a class="link" href="#">Uzman Yardımı</a></li>
+                  <li><a class="link" href="#">Randevu Sistemi</a></li>
+                  <li><a class="link" href="#">Destek Kaydı</a></li>
+                </ul>
+                <ul class="ul-clear">
+                  <li class="title">Hizmet Alanı</li>
+                  <li><a class="link" href="#">Yetkili Servis Başvuru Formu</a></li>
+                  <li><a class="link" href="#">Yetkili Satıcı Başvuru Formu</a></li>
+                  <li><a class="link" href="#">Arçelik Mağazaları</a></li>
+                  <li><a class="link" href="#">Yetkili Servisler</a></li>
+                  <li><a class="link" href="#">Konsept Mağaza</a></li>
+                </ul>
+                <ul class="ul-clear">
+                  <li class="title">Daha Fazlası</li>
+                  <li><a class="link" href="#">Mucize Lezzetler</a></li>
+                  <li><a class="link" href="#">Teknolojiler</a></li>
+                  <li><a class="link" href="#">Etkinlik Takvimi</a></li>
+                  <li><a class="link" href="#">Arçelik Demek</a></li>
+                </ul>
+              </div>
+              <!-- FOOTER MENU DESKTOP-->
+            </div>
+            <div class="col-12 col-lg-3 col-right">
+              <!-- SOCIAL LINKS-->
+              <div class="social-links">
+                <ul class="ul-clear">
+                  <li><a href="https://twitter.com/arcelik" target="_blank" title="Twitter" aria-label="Twitter">
+                      <svg class="icon icon-twitter">
+                        <use xlink:href="assets/images/sprite-map.svg#twitter"></use>
+                      </svg></a></li>
+                  <li><a href="https://www.instagram.com/arcelik" target="_blank" title="Instagram"
+                      aria-label="Instagram">
+                      <svg class="icon icon-instagram">
+                        <use xlink:href="assets/images/sprite-map.svg#instagram"></use>
+                      </svg></a></li>
+                  <li><a href="https://facebook.com/arcelik" target="_blank" title="Facebook" aria-label="Facebook">
+                      <svg class="icon icon-facebook">
+                        <use xlink:href="assets/images/sprite-map.svg#facebook"></use>
+                      </svg></a></li>
+                  <li><a href="https://youtube.com/arcelik" target="_blank" title="Youtube" aria-label="Youtube">
+                      <svg class="icon icon-youtube">
+                        <use xlink:href="assets/images/sprite-map.svg#youtube"></use>
+                      </svg></a></li>
+                </ul>
+              </div>
+              <!-- SOCIAL LINKS-->
+              <!-- FOOTER MENU MOBILE-->
+              <div class="footer-menu">
+                <ul class="ul-clear">
+                  <li><a href="#">Yetkili Servis Başvuru Formu</a></li>
+                  <li><a href="#">Yetkili Satıcı Başvuru Formu</a></li>
+                  <li><a href="#">Arçelik Mağazaları</a></li>
+                  <li><a href="#">Yetkili Servisler</a></li>
+                  <li><a href="#">Garanti Uygulamaları</a></li>
+                  <li><a href="#">Katalog ve Broşür</a></li>
+                  <li><a href="#">Kurumsal Çözümler</a></li>
+                  <li><a class="link" href="#">Destek</a></li>
+                  <li><a class="link" href="#">Bilgi Merkezi</a></li>
+                </ul>
+              </div>
+              <!-- FOOTER MENU MOBILE-->
+              <!-- CUSTOMER SUPPORT-->
+              <div class="customer-support">
+                <ul class="ul-clear">
+                  <li><a href="https://wa.me/905444440888" target="_blank">
+                      <div class="title">Whatsapp Destek Hattı</div>
+                      <div class="desc">
+                        <svg class="icon icon-whats-app">
+                          <use xlink:href="assets/images/sprite-map.svg#whats-app"></use>
+                        </svg>0544 444 0 888
+                      </div>
+                    </a></li>
+                  <li><a href="tel:4440888">
+                      <div class="title">7/24 Çağrı Merkezi</div>
+                      <div class="desc">
+                        <svg class="icon icon-support">
+                          <use xlink:href="assets/images/sprite-map.svg#support"></use>
+                        </svg>444 0 888
+                      </div>
+                    </a></li>
+                </ul>
+              </div>
+              <!-- CUSTOMER SUPPORT-->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- FOOTER MIDDLE-->
+      <div class="footer-middle">
+        <div class="col-left"><a href="https://www.koc.com.tr/tr-tr" target="_blank" aria-label="Koç Holding"><img
+              class="lazy" data-src="assets/images/logo-koc.svg" alt="Koç Holding"></a></div>
+        <div class="col-right"><a
+            href="https://www.guvendamgasi.org.tr/firmadetay.php?Guid=f74f2916-ffc2-11e9-b063-48df373f4850"
+            target="_blank" aria-label="Güven Damgası Aldı"><img class="lazy"
+              data-srcset="assets/images/guven-damgasi@1x.png 1x, assets/images/guven-damgasi@2x.png 2x"
+              alt="Güven Damgası Aldı"></a></div>
+      </div>
+      <!-- FOOTER BOTTOM-->
+      <div class="footer-bottom">
+        <!-- FOOTER LINKS-->
+        <div class="footer-links">
+          <ul class="ul-clear">
+            <li><a class="link" href="#">Gizlilik Politikası</a></li>
+            <li><a class="link" href="#">Kampanya Koşulları</a></li>
+            <li><a class="link" href="#">Satış Sözleşmesi</a></li>
+            <li><a class="link" href="#">İşlem Rehberi</a></li>
+            <li><a class="link" href="#">Bize Ulaşın</a></li>
+          </ul>
+        </div>
+        <!-- FOOTER LINKS-->
+        <!-- COPYRIGHT-->
+        <div class="copyright">©2020 arcelik.com.tr</div>
+        <!-- COPYRIGHT-->
+      </div>
+    </footer>
+    <!--FOOTER-->
+  </div>
+  <!-- App Shell Placeholders-->
+  <div id="ash-plc"><i class="asp-1"></i><i class="asp-2"></i><i class="asp-3"></i><i class="asp-4"></i><i
+      class="asp-5"></i>
+  </div>
+  <!-- Global Preloader-->
+  <div class="preloader"><svg width="100" height="100">
+      <g transform="translate(-135.000000, -295.000000)">
+        <g transform="translate(128.000000, 140.000000)">
+          <path
+            d="M37.7288183,228.505321 L23,184.121067 C45.7491751,182.173038 65.1068732,173.52762 80.4399083,158.505321 L97,203.364095 C83.372015,217.487304 61.6222806,227.870547 37.7288183,228.505321">
+          </path>
+        </g>
+      </g>
+    </svg></div>
+  <!-- Global Overlay-->
+  <div id="overlay"></div>
+  <!-- Mini Popup-->
+  <!-- Mini Popup-->
+  <!--FOOT-->
+  <script src="assets/js/all.js"></script>
+  <!-- TEMPORARY JS FOR DEMO-->
+  <script src="upload/js/temp.js"></script>
+  <!-- TEMPORARY JS FOR DEMO-->
+  <!--FOOT-->
+</body>
+
+</html>
