@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="tr">
+<!--HEAD-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+  <!--Add to homescreen for Chrome on Android-->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Arçelik">
+  <link rel="icon" sizes="144x144" href="assets/images/mstile-144x144.png">
+  <!--Add to homescreen for Safari on iOS-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#d93131">
+  <meta name="apple-mobile-web-app-title" content="Arçelik">
+  <link rel="apple-touch-icon" sizes="144x144" href="assets/images/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/images/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.ico">
+  <title> Arçelik</title>
+  <meta name="description" content="desc">
+
+  <!--css-->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!--serviceWorker-->
+  <style>
+    .arc-body {
+      background-color: #222222;
+      width: 100%;
+      height: 100%;
+      padding-top: 60px;
+      padding-bottom: 60px;
+
+    }
+
+    .arc-max-container {
+      max-width: 700px;
+      margin: 0 auto;
+      border-top: 6px solid #d93131;
+      background-color: #f6f6f6;
+      height: 100%;
+
+      padding: 0px 15px;
+
+    }
+
+    .mx-container {
+      max-width: 700px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .logo {
+
+      max-width: 156px;
+      margin: 0 auto;
+      margin-top: 58px;
+    }
+
+    .arc-card {
+
+      max-width: 280px;
+      margin: 0 auto;
+      margin-top: 43px;
+    }
+
+    .text-container {
+      padding-top: 41px;
+    }
+
+    .text-name {
+      font-size: 35px;
+      line-height: 40px;
+      padding-bottom: 20px;
+      margin: 0;
+      font-weight: 400;
+    }
+
+    .text-decs {
+      font-size: 18px;
+      line-height: 21px;
+      color: #000000;
+      margin: 0;
+      padding-bottom: 36px;
+
+    }
+
+    .outline-btn {
+      width: 189px;
+      height: 43px;
+      border-radius: 21.5px;
+      border: 1px solid #ff0000;
+      line-height: 43px;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .btn-text {
+      font-size: 12px;
+      color: #222222;
+    }
+
+    .border {
+      width: 100%;
+      max-width: 658px;
+      border: 1px solid #e8e8e9;
+    }
+
+    .text-title {
+      font-size: 20px;
+      line-height: 23px;
+      margin: 0;
+      color: #000000;
+      font-weight: 400;
+      padding-bottom: 17.5px;
+    }
+
+    .required-text p:first-child {
+      padding-left: 30px;
+      padding-top: 32px;
+    }
+
+    .required-text p {
+      padding-left: 40px;
+      font-size: 14px;
+      padding-right: 32px;
+      line-height: 16px;
+    }
+
+    .required-text ul {
+      padding-right: 32px;
+    }
+
+    .required-text ul li {
+      font-size: 14px;
+      padding-bottom: 14px;
+      line-height: 16px;
+    }
+
+    .required-text ul li:last-child {
+      padding-bottom: 52px;
+    }
+
+    .arc-required-text {
+      font-size: 26px;
+      padding: 61px 0px 58px 0px;
+      color: #fff;
+    }
+
+    .flex-cont {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .flex-cont .div1,
+    .flex-cont2 .div1 {
+      width: 151px;
+
+    }
+
+    .flex-cont2 {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 100%;
+      padding-top: 70px;
+    }
+
+    .flex-text-style {
+      color: #fff;
+      font-size: 20px;
+      line-height: 23px;
+      padding-top: 30px;
+    }
+
+    .flex-cont2 .div1:nth-child(1) {
+      width: 262px;
+    }
+
+    .flex-cont2 .div1 span {
+      color: #fff;
+    }
+
+    .social-list {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 93px 0px 64px 0px;
+      max-width: 408px;
+      margin: 0 auto;
+    }
+
+    .box {
+      width: 408px;
+      margin: 0 auto;
+      display: flex;
+      height: 152px;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #fff;
+      flex-direction: column;
+      box-sizing: border-box;
+      overflow: hidden;
+      padding: 18px;
+    }
+
+    .box p {
+      font-size: 20px;
+      line-height: 23px;
+      max-width: 125px;
+      color: #fff;
+      padding-top: 23px;
+      
+    }
+
+    .box img {
+      margin-top: 10px;
+    }
+    .support {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding-top: 80px;
+      padding-bottom: 100px;
+    }
+    
+    .support .sup1 {
+      width: 50%;
+    }
+    .support .sup1 p {
+      color: #989898;
+      font-size: 14px;
+    }
+    .support .sup1 a {
+      color: #fff;
+      font-size: 22px;
+      line-height: 26px;
+      padding-left: 15px;
+    }
+    .support .sup1 .center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .copyright {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding-bottom: 60px;
+    }
+    .copyright .koc .center {
+      display: flex;
+      align-items: center;
+    }
+    .copyright .koc p {
+      color: #fff;
+      margin: 0;
+      font-size: 14px;
+      padding-right: 6px;
+    }
+    
+  </style>
+</head>
+
+
+<body class="arc-body">
+  <div class="arc-max-container">
+    <div class="logo text-center">
+      <img src="logo.png" alt="logo png">
+    </div>
+    <div class="arc-card text-center">
+      <img src="card.png" alt="card">
+    </div>
+    <div class="text-container text-center">
+      <h1 class="text-name">Merhaba Selçuk Avcı,</h1>
+      <p class="text-desc">Sedef Sofi size 3.000 TL değerinde Arçelik Online Hediye Çeki göndermiştir.
+        Hediyenizi <a href="www.arcelik.com.tr" style="text-decoration: underline;">www.arcelik.com.tr’de</a> hemen
+        harcamaya başlayabilirsiniz. Keyifli alışverişler dileriz.
+      </p>
+      <button class="outline-btn"> <a class="btn-text" href="#">Alışverişe Başla</a> </button>
+    </div>
+    <div class="text-center border">
+    </div>
+    <div class="text-container text-center">
+      <h1 class="text-title">Arçelik üyeliğiniz yok mu?</h1>
+      <button class="outline-btn"> <a class="btn-text" href="#">Hemen Üye Ol</a> </button>
+    </div>
+    <div class="text-center border">
+    </div>
+    <div class="required-text">
+      <p>Kullanım koşulları:</p>
+      <p>“Arçelik Hediye Çeki” hakkında bilgi almak için 
+       <a
+          href="https://www.arcelik.com.tr/arcelik-online-hediye-ceki">https://www.arcelik.com.tr/arcelik-online-hediye-ceki</a>
+        adresini ziyaret edebilirsiniz. </p>
+      <ul>
+        <li>
+          Hediye çeklerinin kullanımına ilişkin tüm hüküm ve koşulları (“Hüküm ve Koşullar”) öğrenmek için <a style="text-decoration: underline;"
+            href="https://www.arcelik.com.tr/arcelik-online-hediye-ceki">https://www.arcelik.com.tr/arcelik-online-hediye-ceki</a>
+          adresini ziyaret edebilirsiniz.
+        </li>
+        <li>
+          Hediye çekleri arcelik.com.tr’den yapılan ürün alımları için kullanılabilir, arcelik.com.tr dışında
+          kullanılamaz.
+        </li>
+        <li>
+          Hediye çekleri Arçelik mağazalarında geçerli değildir.
+        </li>
+        <li>
+          Hediye çekinin kaybolması, çalınması, imha edilmesi, Hüküm ve Şartlar’a veya mevzuata aykırı kullanımı ile
+          üçüncü kişilerce izinsiz kullanımı halinde tüm sorumluluk kullanıcıya aittir.
+        </li>
+        <li>
+          Çeki kullanmak için arcelik.com.tr’ye üye olmak gerekir. Kullanıcı Arçelik hesabına giriş yapar. Sepette ödeme
+          yöntemi olarak “Hediye Çeki ile Ödeme”yi seçer, cep telefonu numarasını doğrular ve siparişini tamamlar.
+        </li>
+        <li>
+          Hediye çeki tutarı siparişin tamamını karşılamıyorsa kalan tutar kredi kartı ile ödenebilmektedir.
+        </li>
+        <li>
+          Hediye çeki birden fazla alışverişte parçalı olarak kullanılabilir.
+        </li>
+        <li>
+          Hediye çekinin geçerlilik süresi 1 (bir) yıldır.
+        </li>
+        <li>
+          Kullanım Arçelik hesabı ve internet erişimi gerektirir. Kanunen zorunlu haller dışında para iadesi yapılmaz,
+          yeniden yüklenemez, paraya çevrilemez, değer karşılığında satılamaz.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="text-center mx-container">
+    <h1 class="arc-required-text">Arçelik’i tercih ettiğiniz için teşekkür ederiz.</h1>
+
+    <div class="flex-cont">
+      <div class="div1">
+        <img src="return.png" alt="" width="54">
+        <p class="flex-text-style">14 Gün İçinde <br> Koşulsuz İade</p>
+      </div>
+      <div class="div1">
+        <img src="box.png" alt="" width="54">
+        <p class="flex-text-style">Ücretsiz Teslimat</p>
+      </div>
+      <div class="div1">
+        <img src="map.png" alt="" width="54">
+        <p class="flex-text-style">Yaygın Hizmet</p>
+      </div>
+      <div class="flex-cont2">
+        <div class="div1">
+          <img src="machine.png" alt="" width="54">
+          <p class="flex-text-style">Teslimat Anında <br>Ücretsiz Montaj </p>
+          <span>* Montaj gerektiren ürünlerde geçerlidir.</span>
+        </div>
+        <div class="div1">
+          <img src="cart.png" alt="" width="54">
+          <p class="flex-text-style">Taksit <br>Seçenekleri</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="social-list">
+      <a href="#">
+        <img src="twitter.png" alt="twitter" width="29">
+      </a>
+      <a href="#">
+        <img src="ins.png" alt="instagram" width="29">
+      </a>
+      <a href="#">
+        <img src="facebook.png" alt="facebook" width="14">
+      </a>
+      <a href="#">
+        <img src="youtube.png" alt="youtube" width="38">
+      </a>
+
+    </div>
+    <div class="box">
+      <img src="plus.png" alt="plus" width="44">
+      <p>Destek ve Bilgi Merkezi</p>
+    </div>
+    <div class="support">
+      <div class="sup1">
+        <p>WhatsApp Destek Hattı</p>
+        <div class="center">
+          <img src="whats.png" alt="whatsapp" width="18"> <a href="+tel">0 544 0 888 </a>
+        </div>
+      </div>
+      <div class="sup1">
+        <p>7/24 Çağrı Merkezi</p>
+        <div class="center">
+          <img src="telephone.png" alt="telephone" width="18"> <a href="+tel">0 850 210 0 888 </a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <div class="koc">
+        <div class="center">
+          <p>©2020 arcelik.com.tr</p> <img src="koc.png" alt="koc" width="70">
+        </div>  
+        
+      </div>
+      <div class="koc">
+        <img src="trgo.png" alt="trgo" width="50">
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
