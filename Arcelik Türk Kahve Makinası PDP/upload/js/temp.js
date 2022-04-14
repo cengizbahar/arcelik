@@ -385,25 +385,25 @@ if(document.querySelector('#nav-clubs5')){
 }
 
 // Poltio Widget
-// modalWidget = '<iframe id="poltio-embed-set-675" class="poltio-embed" src="https://www.poltio.com/e/set/675/slug?utm_source=embed2&utm_medium=&utm_campaign=set-675&share=on&notify=off&align=center&loc=tr" width="100%" height="300" frameBorder="0" allowFullScreen="allowfullscreen" scrolling="yes" title="Embed"></iframe>';
+modalWidget = '<iframe id="poltio-embed-set-675" class="poltio-embed" src="https://www.poltio.com/e/set/675/slug?utm_source=embed2&utm_medium=&utm_campaign=set-675&share=on&notify=off&align=center&loc=tr" width="100%" height="300" frameBorder="0" allowFullScreen="allowfullscreen" scrolling="yes" title="Embed"></iframe>';
 
-// inlineWidget = '<iframe id="poltio-embed-set-708" class="poltio-embed" src="https://www.poltio.com/e/set/708/slug?utm_source=embed2&utm_medium=&utm_campaign=set-708&share=on&notify=off&align=center&loc=tr" width="100%" height="300" frameBorder="0" allowFullScreen="allowfullscreen" scrolling="yes" title="Embed"></iframe>';
+inlineWidget = '<iframe id="poltio-embed-set-708" class="poltio-embed" src="https://www.poltio.com/e/set/708/slug?utm_source=embed2&utm_medium=&utm_campaign=set-708&share=on&notify=off&align=center&loc=tr" width="100%" height="300" frameBorder="0" allowFullScreen="allowfullscreen" scrolling="yes" title="Embed"></iframe>';
 
-// if(document.querySelector('#modal-assistant')){
-    // if(document.querySelector('#assistant.iframed')){
-    //     if(isMobile){
-    //         $('#modal-assistant .bnr-body').html(modalWidget);
-    //     }else{
-    //         $('#assistant .bnr-iframe').html(inlineWidget);
-    //     }
-    // }else{
-        // $('#modal-assistant .bnr-body').html(modalWidget);
-    // }
-// }
+if(document.querySelector('.page-product-list')){
+    if(document.querySelector('#assistant.iframed')){
+        if(isMobile){
+            $('#modal-assistant .bnr-body').html(modalWidget);
+        }else{
+            $('#assistant .bnr-iframe').html(inlineWidget);
+        }
+    }else{
+        $('#modal-assistant .bnr-body').html(modalWidget);
+    }
+}
 
-// if(document.querySelector('.page-home')){
-//     $('#modal-assistant .bnr-body').html(modalWidget);
-// }
+if(document.querySelector('.page-home')){
+    $('#modal-assistant .bnr-body').html(modalWidget);
+}
 
 // Social Login OTP
 if(document.querySelector('.social-otp')){
@@ -411,22 +411,23 @@ if(document.querySelector('.social-otp')){
         $('.social-otp').attr('data-step', 2);
         $('.social-otp .prg-summary').attr('data-step', 2);
     });
-
-    $('.social-login .btn').on('click', function () {
-        if(isMobile)
-            utils.pageScroll({top: 0});
-    
-        bdy.addClass('social-otp-ready');
-    });
-    
-    $('.social-otp .prg-back button').on('click', function () {
-        bdy.removeClass('social-otp-ready');
-        $('.social-otp').attr('data-step', 1);
-        $('.social-otp .prg-summary').attr('data-step', 1);
-    });
 }
 
 // Live Chat Form Trigger
 $('.live-chat-trigger').on('click', function(){
     window.open("live-chat-form.html", "liveChatForm", "width=425,height=600");
+});
+
+// Social Signup OTP
+$('.social-login .btn').on('click', function () {
+    if(isMobile)
+        utils.pageScroll({top: 0});
+
+    bdy.addClass('social-otp-ready');
+});
+
+$('.social-otp .prg-back button').on('click', function () {
+    bdy.removeClass('social-otp-ready');
+    $('.social-otp').attr('data-step', 1);
+    $('.social-otp .prg-summary').attr('data-step', 1);
 });
