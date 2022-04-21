@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21">
+    <g data-name="Group 7">
+        <g data-name="Group 1">
+            <path data-name="Line 1" transform="rotate(45 -2.557 13.755)" style="stroke-linecap:round;stroke-width:2px;stroke:#c2382f;fill:none" d="M0 0h6.486"/>
+            <path data-name="Line 2" transform="rotate(135 4.623 8.02)" style="stroke-linecap:round;stroke-width:2px;stroke:#c2382f;fill:none" d="M0 0h6.486"/>
+        </g>
+        <g data-name="Ellipse 3" style="stroke:#c2382f;fill:none">
+            <circle cx="10.5" cy="10.5" r="10.5" style="stroke:none"/>
+            <circle cx="10.5" cy="10.5" r="10" style="fill:none"/>
+        </g>
+    </g>
+</svg>
